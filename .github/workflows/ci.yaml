@@ -35,23 +35,15 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}       
-
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          context: ./docker
-          push: true
-          tags: pavelogs/wordpress:${{ steps.tag_version.outputs.new_tag }}
                                      
       - name: Helm Package
         run: |
-          sed -i "s/^version:.*$/version: ${{ steps.tag_version.outputs.new_tag }}/" /home/runner/work/project_wp/project_wp/helm-source/wordpress/Chart.yaml
-          sed -i "s/^appVersion:.*$/appVersion: ${{ steps.tag_version.outputs.new_tag }}/" /home/runner/work/project_wp/project_wp/helm-source/wordpress//Chart.yaml
+          sed -i "s/^version:.*$/version: ${{ steps.tag_version.outputs.new_tag }}/" ./helm-source/wordpress/Chart.yaml
+          sed -i "s/^appVersion:.*$/appVersion: ${{ steps.tag_version.outputs.new_tag }}/" ./helm-source/wordpress//Chart.yaml
           sed -i "s/tag:.*$/tag: ${{ steps.tag_version.outputs.new_tag }}/" /home/runner/work/project_wp/project_wp/helm-source/wordpress/values.yaml
           cd ./helm-source
           helm package wordpress --version=${{ steps.tag_version.outputs.new_tag }} --app-version=${{ steps.tag_version.outputs.new_tag }}
           mv wp_project-${{ steps.tag_version.outputs.new_tag }}.tgz home/runner/work/project_wp/project_wp/helm-releases/
-          cd ..
           cd ..
           helm repo index --url https://pavel167988.github.io/project_wp/ --merge index.yaml .
           
