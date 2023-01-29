@@ -39,7 +39,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./Docker
+          context: ./docker
           push: true
           tags: pavelogs/wordpress:${{ steps.tag_version.outputs.new_tag }}
                                      
