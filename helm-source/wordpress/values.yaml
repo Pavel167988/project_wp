@@ -1,0 +1,49 @@
+namespace: project
+name: wordpress
+
+image: 
+  repository: pavelogs/wordpress
+<<<<<<< HEAD:helm-source/wordpress/values.yaml
+  tag: 1
+=======
+  tag: 0.0.41
+>>>>>>> 0da4e89915684a4c9c2077812f0691d8d49e91bd:app/helm-source/wordpress/values.yaml
+
+
+nfs_path_sa: /mnt/IT-Academy/nfs-data/sa2-22-22/pkostenko/project
+nfs_server_sa: 192.168.37.105
+
+
+
+host: wp.k8s-12.sa
+port: 80
+
+service:
+  name: wordpress-front
+  type: ClusterIP
+
+pvc:
+  storage: 2Gi
+  type: nfs 
+
+pv:
+  storage: 8Gi
+  type: nfs 
+
+
+env:
+  - name: WORDPRESS_DB_HOST
+    value: 192.168.202.28
+  - name: WORDPRESS_DB_NAME
+    value: wordpress
+  - name: WORDPRESS_DB_USER
+    value: admin  
+  - name: WORDPRESS_DB_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: mysql-pass
+        key: password
+
+
+
+

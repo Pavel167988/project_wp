@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.name }}
+spec:
+  ports:
+    - port: {{ .Values.port }}
+  selector:
+    app: {{ .Values.name }}
+    tier: frontend
+  type: {{ .Values.service.type }}
