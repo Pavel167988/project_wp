@@ -1,0 +1,72 @@
+name: Publish Docker image in dockerhub
+
+on:
+  release:
+    types: [published]
+  push:
+    branches:
+      - "main"
+ 
+      
+jobs:
+  push_to_registries:
+    name: Push Docker image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      repository-projects: write
+      packages: write      
+    steps:    
+      - name: add tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.0
+        with:
+          github_token: ${{ secrets.gh_token }}
+          tag_prefix: ""
+          
+      - name: Check out the repo
+        uses: actions/checkout@v2
+        
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2 
+        
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}       
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: ./Docker
+          push: true
+          tags: pavelogs/wordpress:${{ steps.tag_version.outputs.new_tag }}
+                                     
+      - name: Helm Package
+        run: |
+          sed -i "s/^version:.*$/version: ${{ steps.tag_version.outputs.new_tag }}/" /home/runner/work/project_wp/project_wp/helm-source/wordpress/Chart.yaml
+          sed -i "s/^appVersion:.*$/appVersion: ${{ steps.tag_version.outputs.new_tag }}/" /home/runner/work/project_wp/project_wp/helm-source/wordpress//Chart.yaml
+          sed -i "s/tag:.*$/tag: ${{ steps.tag_version.outputs.new_tag }}/" /home/runner/work/project_wp/project_wp/helm-source/wordpress/values.yaml
+          cd ./helm-source
+          helm package wordpress --version=${{ steps.tag_version.outputs.new_tag }} --app-version=${{ steps.tag_version.outputs.new_tag }}
+          mv wp_project-${{ steps.tag_version.outputs.new_tag }}.tgz home/runner/work/project_wp/project_wp/helm-releases/
+          cd ..
+          cd ..
+          helm repo index --url https://pavel167988.github.io/project_wp/ --merge index.yaml .
+          
+          
+          
+
+      - name: Commit and push changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "version app ${{ steps.tag_version.outputs.new_tag }}"
+      - name: Push changes to git
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main      
+          
