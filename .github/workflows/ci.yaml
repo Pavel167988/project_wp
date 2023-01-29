@@ -44,7 +44,7 @@ jobs:
           cd ./helm-source
           helm package wordpress
           cd ..
-          mv wp_project-${{ steps.tag_version.outputs.new_tag }}.tgz ./helm-releases/
+          mv wp_project-${{ steps.tag_version.outputs.new_tag }}.tgz .
           cd ..
           helm repo index --url https://pavel167988.github.io/project_wp/ --merge index.yaml.
           
