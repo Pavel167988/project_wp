@@ -56,9 +56,7 @@ jobs:
           helm package wordpress
           mv wp_project-${{ steps.tag_version.outputs.new_tag }}.tgz ../helm-releases
           cd ..
-          helm repo index --url https://pavel167988.github.io/project_wp/ --merge index.yaml .
-          
-          
+          helm repo index --url https://pavel167988.github.io/project_wp/ --merge index.yaml .                  
           
 
       - name: Commit and push changes
