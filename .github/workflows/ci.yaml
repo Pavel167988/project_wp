@@ -46,7 +46,7 @@ jobs:
           tags: pavelogs/wordpress:${{ steps.tag_version.outputs.new_tag }}
           
                                      
-      - name: Helm Package
+      - name: Helm Package and changes chart files
         run: |
           sed -i "s/^version:.*$/version: ${{ steps.tag_version.outputs.new_tag }}/" ./helm-source/wordpress/Chart.yaml
           sed -i "s/^appVersion:.*$/appVersion: ${{ steps.tag_version.outputs.new_tag }}/" ./helm-source/wordpress/Chart.yaml
