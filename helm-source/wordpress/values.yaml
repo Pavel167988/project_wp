@@ -38,7 +38,3 @@ env:
       secretKeyRef:
         name: mysql-pass
         key: password
-
-
-
-
