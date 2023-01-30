@@ -23,9 +23,6 @@ jobs:
         with:
           github_token: ${{ secrets.gh_token }}
           tag_prefix: ""
-          
-      - name: Check out the repo
-        uses: actions/checkout@v2
         
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2 
@@ -34,11 +31,9 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}       
           
-          
-          
-          
+                    
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
@@ -59,13 +54,14 @@ jobs:
           helm repo index --url https://pavel167988.github.io/project_wp/ --merge index.yaml .                  
           
 
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
           git commit -m "version app ${{ steps.tag_version.outputs.new_tag }}"
-      - name: Push changes to git
+          
+      - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
