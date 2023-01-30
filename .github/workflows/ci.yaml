@@ -51,6 +51,7 @@ jobs:
           sed -i "s/^version:.*$/version: ${{ steps.tag_version.outputs.new_tag }}/" ./helm-source/wordpress/Chart.yaml
           sed -i "s/^appVersion:.*$/appVersion: ${{ steps.tag_version.outputs.new_tag }}/" ./helm-source/wordpress/Chart.yaml
           sed -i "s/tag:.*$/tag: ${{ steps.tag_version.outputs.new_tag }}/" ./helm-source/wordpress/values.yaml
+          sed -i "s/targetRevision:.*$/targetRevision: ${{ steps.tag_version.outputs.new_tag }}/" ./app_argo.yaml
           cd ./helm-source
           helm package wordpress
           mv wp_project-${{ steps.tag_version.outputs.new_tag }}.tgz ../helm-releases
