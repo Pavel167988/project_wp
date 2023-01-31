@@ -1,11 +1,7 @@
 name: Last commit
 
 
-on:
-  workflow_run:
-    workflows: [Run Tests]
-    types:
-      - completed
+on: [workflow_dispatch]
        
 jobs:
   push_to_registries:
