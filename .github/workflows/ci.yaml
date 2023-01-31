@@ -66,5 +66,14 @@ jobs:
           git commit -m "version app ${{ steps.tag_version.outputs.new_tag }}"
           git push
           
-
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: alert_project
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://avatars.githubusercontent.com/u/43742164?s=32&v=4
+          SLACK_MESSAGE: 'Helm package was successfully packaged and uploaded to the repository'
+          SLACK_TITLE: 'Job is done!'
+          SLACK_USERNAME: Kostenko Pavel
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           
