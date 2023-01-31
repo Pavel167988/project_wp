@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://pavel167988.github.io/project_wp/'
-    targetRevision: 0.0.30
+    targetRevision: 0.0.32
     chart: wp_project
   destination:
     server: 'https://kubernetes.default.svc'

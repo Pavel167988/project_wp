@@ -3,7 +3,7 @@ name: wordpress
 
 image: 
   repository: pavelogs/wordpress
-  tag: 0.0.30
+  tag: 0.0.32
 
 nfs_path_sa: /mnt/IT-Academy/nfs-data/sa2-22-22/pkostenko/project
 nfs_server_sa: 192.168.37.105
