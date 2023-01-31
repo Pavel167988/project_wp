@@ -58,7 +58,6 @@ jobs:
           cd ..
           helm repo index --url https://pavel167988.github.io/project_wp/ --merge index.yaml .                  
           
-
       - name: Commit changes
         run: |
           git config user.name github-actions
