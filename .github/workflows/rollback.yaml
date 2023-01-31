@@ -1,10 +1,11 @@
 name: Last commit
+
+
 on:
-  workflow_dispatch:
-    inputs:
-      rollback:
-      description: 'Rollback'
-      required: true
+  workflow_run:
+    workflows: [Run Tests]
+    types:
+      - completed
        
 jobs:
   push_to_registries:
