@@ -22,8 +22,8 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git reset --hard HEAD^
-          git add .
+          git reset HEAD~
+          git add --all
           git commit -m "Removed last commit"
           
       - name: Push changes
