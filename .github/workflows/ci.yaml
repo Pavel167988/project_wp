@@ -3,9 +3,9 @@ name: Publish Docker image in dockerhub
 on:
   release:
     types: [published]
-  #push:
-    #branches:
-      #- "master"
+  push:
+    branches:
+      - "master"
        
 jobs:
   push_to_registries:
@@ -60,15 +60,12 @@ jobs:
           
 
       - name: Commit changes
-        run: |
+      - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add .
+          git add --all
           git commit -m "version app ${{ steps.tag_version.outputs.new_tag }}"
+          git push
           
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master     
+
           
