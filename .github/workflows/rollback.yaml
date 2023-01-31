@@ -1,7 +1,10 @@
 name: Last commit
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
+    inputs:
+      rollback:
+      description: 'Rollback'
+      required: true
        
 jobs:
   push_to_registries:
