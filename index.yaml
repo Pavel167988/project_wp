@@ -3,7 +3,7 @@ entries:
   wordpress:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-01T07:40:34.221410044Z"
+    created: "2023-02-01T10:11:35.287919164Z"
     description: A Helm chart for Kubernetes
     digest: 904d45b37185b21358628cbce584f4fb302d62fdef3d98c662dcac60ea9e8e18
     name: wordpress
@@ -14,7 +14,7 @@ entries:
   wp_project:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-01T07:40:34.230304038Z"
+    created: "2023-02-01T10:11:35.299401304Z"
     description: A Helm chart for Kubernetes
     digest: 60dd4d8504552ed42352077964762f2f40256123efe21b9823c8a44ab76c9cff
     name: wp_project
@@ -43,8 +43,18 @@ entries:
     - https://pavel167988.github.io/project_wp/helm-releases/wp_project-0.0.40.tgz
     version: 0.0.40
   - apiVersion: v2
+    appVersion: 0.0.39
+    created: "2023-02-01T10:11:35.2990786Z"
+    description: A Helm chart for Kubernetes
+    digest: 243beaf585490f64fca1d7ca895b972af433bf8191cd06cc7f06c55687feb2fa
+    name: wp_project
+    type: application
+    urls:
+    - https://pavel167988.github.io/project_wp/helm-releases/wp_project-0.0.39.tgz
+    version: 0.0.39
+  - apiVersion: v2
     appVersion: 0.0.38
-    created: "2023-02-01T07:40:34.229895243Z"
+    created: "2023-02-01T10:11:35.298745896Z"
     description: A Helm chart for Kubernetes
     digest: 3ddb8a9f00e8cee440a89931f33f91665ceebe0432853cb4bd227111a83d4387
     name: wp_project
@@ -54,7 +64,7 @@ entries:
     version: 0.0.38
   - apiVersion: v2
     appVersion: 0.0.37
-    created: "2023-02-01T07:40:34.229224051Z"
+    created: "2023-02-01T10:11:35.298413792Z"
     description: A Helm chart for Kubernetes
     digest: 6fd208a2d00042d969db52d59ba63af59ae7e30794dacde9fe7c7043b5d10af8
     name: wp_project
@@ -64,7 +74,7 @@ entries:
     version: 0.0.37
   - apiVersion: v2
     appVersion: 0.0.36
-    created: "2023-02-01T07:40:34.227176375Z"
+    created: "2023-02-01T10:11:35.298085488Z"
     description: A Helm chart for Kubernetes
     digest: a02bafc37cfad86f0808d285cbf417ca58eb2287392332b308c3cd5a8398925a
     name: wp_project
@@ -74,7 +84,7 @@ entries:
     version: 0.0.36
   - apiVersion: v2
     appVersion: 0.0.35
-    created: "2023-02-01T07:40:34.226887479Z"
+    created: "2023-02-01T10:11:35.297762784Z"
     description: A Helm chart for Kubernetes
     digest: a2f5f657db9db8f309f82fe27f61888dd570e6202a67a1a2852e177c7ba4b7e2
     name: wp_project
@@ -84,7 +94,7 @@ entries:
     version: 0.0.35
   - apiVersion: v2
     appVersion: 0.0.34
-    created: "2023-02-01T07:40:34.226612482Z"
+    created: "2023-02-01T10:11:35.29743368Z"
     description: A Helm chart for Kubernetes
     digest: daa4d6b0d89b592b62b869811e2e1adb78f1d5b21fedf8c514fcddabccf3dd46
     name: wp_project
@@ -94,7 +104,7 @@ entries:
     version: 0.0.34
   - apiVersion: v2
     appVersion: 0.0.33
-    created: "2023-02-01T07:40:34.226321585Z"
+    created: "2023-02-01T10:11:35.297103776Z"
     description: A Helm chart for Kubernetes
     digest: 4958ca85d5eb128a3c3e875a65f8fe297f3a1c7d0e1a3e819702047f8dad69e9
     name: wp_project
@@ -104,7 +114,7 @@ entries:
     version: 0.0.33
   - apiVersion: v2
     appVersion: 0.0.32
-    created: "2023-02-01T07:40:34.225997989Z"
+    created: "2023-02-01T10:11:35.296769272Z"
     description: A Helm chart for Kubernetes
     digest: 92c80c468fc4fa26abea410c0708dede7479fe1c3da872f8f9b3149ac406910f
     name: wp_project
@@ -114,7 +124,7 @@ entries:
     version: 0.0.32
   - apiVersion: v2
     appVersion: 0.0.30
-    created: "2023-02-01T07:40:34.225297597Z"
+    created: "2023-02-01T10:11:35.296425368Z"
     description: A Helm chart for Kubernetes
     digest: 0295c0bfdb553db5276993d9812331b58f964b76b95b963d58aaf4c37017d058
     name: wp_project
@@ -124,7 +134,7 @@ entries:
     version: 0.0.30
   - apiVersion: v2
     appVersion: 0.0.29
-    created: "2023-02-01T07:40:34.225000101Z"
+    created: "2023-02-01T10:11:35.296070864Z"
     description: A Helm chart for Kubernetes
     digest: 99db703f916fc737605bbd148cf855db9fefb8d864104c1d03cfbff4d7ddc1aa
     name: wp_project
@@ -134,7 +144,7 @@ entries:
     version: 0.0.29
   - apiVersion: v2
     appVersion: 0.0.28
-    created: "2023-02-01T07:40:34.224681205Z"
+    created: "2023-02-01T10:11:35.295682159Z"
     description: A Helm chart for Kubernetes
     digest: 7a80efb1acb62c7050dce807ad887dd524d0159ad14f34e682979fc9175c5be7
     name: wp_project
@@ -144,7 +154,7 @@ entries:
     version: 0.0.28
   - apiVersion: v2
     appVersion: 0.0.27
-    created: "2023-02-01T07:40:34.224377708Z"
+    created: "2023-02-01T10:11:35.295307954Z"
     description: A Helm chart for Kubernetes
     digest: af1d6cf384b58a4fc869cad251e7b48440d19e75bedbe1f7eb916ca8a4a1e7aa
     name: wp_project
@@ -154,7 +164,7 @@ entries:
     version: 0.0.27
   - apiVersion: v2
     appVersion: 0.0.26
-    created: "2023-02-01T07:40:34.224087012Z"
+    created: "2023-02-01T10:11:35.29497295Z"
     description: A Helm chart for Kubernetes
     digest: e6e2bfd13b4aeeeacb2a393bc517ef2fed98306a07c86e76c59f8c63d5c29694
     name: wp_project
@@ -164,7 +174,7 @@ entries:
     version: 0.0.26
   - apiVersion: v2
     appVersion: 0.0.25
-    created: "2023-02-01T07:40:34.223786215Z"
+    created: "2023-02-01T10:11:35.294633246Z"
     description: A Helm chart for Kubernetes
     digest: df10d0b958de30b26bb512fb717cb41445ce3d808780bfa2ab4819a88d820a60
     name: wp_project
@@ -174,7 +184,7 @@ entries:
     version: 0.0.25
   - apiVersion: v2
     appVersion: 0.0.24
-    created: "2023-02-01T07:40:34.223469719Z"
+    created: "2023-02-01T10:11:35.294276442Z"
     description: A Helm chart for Kubernetes
     digest: 50c706cab3c84377d472453de07e3ebdb4448c5e17680c5bae6e4827e28c6741
     name: wp_project
@@ -184,7 +194,7 @@ entries:
     version: 0.0.24
   - apiVersion: v2
     appVersion: 0.0.23
-    created: "2023-02-01T07:40:34.223163523Z"
+    created: "2023-02-01T10:11:35.293900437Z"
     description: A Helm chart for Kubernetes
     digest: f6578503fe27ef24edd30d9387068e97cbd30d97af86baf3ddd4bb9f7cd0b39b
     name: wp_project
@@ -194,7 +204,7 @@ entries:
     version: 0.0.23
   - apiVersion: v2
     appVersion: 0.0.22
-    created: "2023-02-01T07:40:34.222858826Z"
+    created: "2023-02-01T10:11:35.293559333Z"
     description: A Helm chart for Kubernetes
     digest: 24079f238f29b8a2c6fb2c18a2124011cc7a68c46ecafe0b8c130966516be6c7
     name: wp_project
@@ -204,7 +214,7 @@ entries:
     version: 0.0.22
   - apiVersion: v2
     appVersion: 0.0.21
-    created: "2023-02-01T07:40:34.22253843Z"
+    created: "2023-02-01T10:11:35.293209829Z"
     description: A Helm chart for Kubernetes
     digest: 37587458cb4aa1dc928ed624fb8cf21d15a429145ffe97fd1500b5fb7017df50
     name: wp_project
@@ -214,7 +224,7 @@ entries:
     version: 0.0.21
   - apiVersion: v2
     appVersion: 0.0.19
-    created: "2023-02-01T07:40:34.222135335Z"
+    created: "2023-02-01T10:11:35.292840524Z"
     description: A Helm chart for Kubernetes
     digest: 53458ac0d1bf56997f90c8da80d43108ddcfb57778bbe2025fa2494e5dfd6e0d
     name: wp_project
@@ -224,7 +234,7 @@ entries:
     version: 0.0.19
   - apiVersion: v2
     appVersion: 0.0.17
-    created: "2023-02-01T07:40:34.221797539Z"
+    created: "2023-02-01T10:11:35.292447419Z"
     description: A Helm chart for Kubernetes
     digest: 11c2ad32be91c7b745a22cd0292b0c3454aa94e0cb04ca9ba29b2d7d3841023b
     name: wp_project
@@ -242,4 +252,4 @@ entries:
     urls:
     - https://pavel167988.github.io/project_wp/helm-source/wp_project-0.0.13.tgz
     version: 0.0.13
-generated: "2023-02-01T07:40:34.22086295Z"
+generated: "2023-02-01T10:11:35.286662349Z"
