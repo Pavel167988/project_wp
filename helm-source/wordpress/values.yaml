@@ -9,7 +9,6 @@ nfs_path_sa: /mnt/IT-Academy/nfs-data/sa2-22-22/pkostenko/project
 nfs_server_sa: 192.168.37.105
 
 
-
 host: wp.k8s-12.sa
 port: 80
 
