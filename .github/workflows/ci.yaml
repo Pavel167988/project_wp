@@ -3,9 +3,9 @@ name: Publish Docker image in dockerhub
 on:
   release:
     types: [published]
-  push:
-    branches:
-      - "master"
+  #push:
+    #branches:
+      #- "master"
        
 jobs:
   push_to_registries:
@@ -61,7 +61,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: alert_project
-          SLACK_COLOR: '#FF0000'
+          SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_MESSAGE: 'Backup was successfully created'
           SLACK_TITLE: 'Backup DB'
