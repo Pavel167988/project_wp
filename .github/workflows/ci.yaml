@@ -45,6 +45,29 @@ jobs:
           push: true
           tags: pavelogs/wordpress:${{ steps.tag_version.outputs.new_tag }}
           
+                   
+
+      - name: Connect to host with proxy with out password and create backup
+        id: backup
+        run: |
+           mkdir ~/.ssh
+           eval `ssh-agent -s`
+           ssh-add - <<< "${{secrets.KEY}}" 
+           ssh-keyscan -H ${{ secrets.PROXY_HOST }} >> ~/.ssh/known_hosts
+           ssh ${{ secrets.USERNAME_HOST }}@${{ secrets.HOST_IP }} -o ProxyCommand="ssh -W %h:%p ${{ secrets.USERNAME_PROXY }}@${{ secrets.PROXY_HOST }}" -o StrictHostKeyChecking=no "mysqldump -u ${{ secrets.USERNAME_HOST }} ${{ secrets.DB }} > ./backup/${{ secrets.DB }}-${{ steps.tag_version.outputs.new_tag }}.sql"  
+   
+ 
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: alert_project
+          SLACK_COLOR: '#FF0000'
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_MESSAGE: 'Backup was successfully created'
+          SLACK_TITLE: 'Backup DB'
+          SLACK_USERNAME: Kostenko Pavel
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          
                                      
       - name: Helm Package and changes chart files
         run: |
