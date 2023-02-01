@@ -14,7 +14,8 @@
 
 ### Pipeline. High Level Design
 
-_Scheme here_
+---
+![Schema](schema.png)
 
 ### Technologies which were used in project
 
