@@ -30,18 +30,18 @@ _Scheme here_
 
 - Creates a new tag
 - Install docker
-- Build image and pushes that image with the tag that was originally generated
-- Makes a backup of the database and puts it in a folder on the machine where the database is installed
-- Changes lines in files(Values.yaml, Chart.yaml) to a new tag
-- Helm build the package and pushes all the changes to the repository
-- Devops receives a notification about the successful completion of the pipeline
+- Build image and pushes that image with to the repository with tag that was generated
+- Create backup of the database and push into the storage
+- Update charts in helm (tag)
+- Helm build the package and push to the repository
+- There are notifications about results of pipeline
 
 **Deployment flows short description:**
 
-After a commit in the repository, Argo-CD synchronizes with the repository, sees the changes in the file (index.yaml), namely targetRevision and install new application in Kubernetes. If pod is down alertmanager send notification in Slack.
+Argo-CD synchronize with the repository, sees the changes in the file (index.yaml), namely targetRevision and deploy new version of application in Kubernetes cluster.
 
 
-**Rollback flow description and implementation:** ArgoCD can rollback apps in WebUI interface. 
+**Rollback flow description and implementation:** ArgoCD can rollback apps in WebUI interface manually.
 
 
 
