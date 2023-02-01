@@ -47,7 +47,7 @@ After a commit in the repository, Argo-CD synchronizes with the repository, sees
 
 ### Links
 ---
-[Repository with pipeline and app](https://github.com/Pavel167988/project_wp);
+[Repository with pipeline and app](https://github.com/Pavel167988/project_wp)
 ---
-[Images in Docker Hub](https://hub.docker.com/repository/docker/pavelogs/wordpress/general);
+[Images in Docker Hub](https://hub.docker.com/repository/docker/pavelogs/wordpress/general)
 ---
