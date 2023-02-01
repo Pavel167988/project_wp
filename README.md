@@ -18,13 +18,13 @@ _Scheme here_
 
 ### Technologies which were used in project
 
-**Orchestration: K8s**
+**Orchestration:** K8s
 
-**Automation tools: Ansible, Github Actions, Argo-CD**
+**Automation tools:** Ansible, Github Actions, Argo-CD
 
-**Monitoring: Prometheus, Alertmanager, Grafana, Grafana Loki**
+**Monitoring:** Prometheus, Alertmanager, Grafana, Grafana Loki
 
-**Notification: Slack**
+**Notification:** Slack
 
 **CI description: The developer push the code in master branch to the repository, github actions:**
 
@@ -36,16 +36,18 @@ _Scheme here_
 - Helm build the package and pushes all the changes to the repository
 - Devops receives a notification about the successful completion of the pipeline
 
-**Deployment flows short description:
+**Deployment flows short description:**
 
-After a commit in the repository, Argo-CD synchronizes with the repository, sees the changes in the file (index.y**aml), namely targetRevision and install new application in Kubernetes. If pod is down alertmanager send notification in Slack.**
+After a commit in the repository, Argo-CD synchronizes with the repository, sees the changes in the file (index.yaml), namely targetRevision and install new application in Kubernetes. If pod is down alertmanager send notification in Slack.
 
 
-**Rollback flow description and implementation: ArgoCD can rollback apps in WebUI interface.** 
+**Rollback flow description and implementation:** ArgoCD can rollback apps in WebUI interface. 
 
 
 
 ### Links
-
-[Repository with pipeline and app](https://github.com/Pavel167988/project_wp)
-[Images in Docker Hub](https://hub.docker.com/repository/docker/pavelogs/wordpress/general)
+---
+[Repository with pipeline and app](https://github.com/Pavel167988/project_wp);
+---
+[Images in Docker Hub](https://hub.docker.com/repository/docker/pavelogs/wordpress/general);
+---
