@@ -1,4 +1,4 @@
-name: Publish Docker image in dockerhub
+name: Build
 
 on:
   release:
@@ -9,7 +9,7 @@ on:
        
 jobs:
   push_to_registries:
-    name: Push Docker image
+    name: Build
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -28,7 +28,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
         
-      - name: Set up Docker Buildx
+      - name: Set up Docker
         uses: docker/setup-buildx-action@v2 
         
       - name: Login to Docker Hub
@@ -47,7 +47,7 @@ jobs:
           
                    
 
-      - name: Connect to host with proxy with out password and create backup
+      - name: Create backup
         id: backup
         run: |
            mkdir ~/.ssh
@@ -57,7 +57,7 @@ jobs:
            ssh ${{ secrets.USERNAME_HOST }}@${{ secrets.HOST_IP }} -o ProxyCommand="ssh -W %h:%p ${{ secrets.USERNAME_PROXY }}@${{ secrets.PROXY_HOST }}" -o StrictHostKeyChecking=no "mysqldump -u ${{ secrets.USERNAME_HOST }} ${{ secrets.DB }} > ./backup/${{ secrets.DB }}-${{ steps.tag_version.outputs.new_tag }}.sql"  
    
  
-      - name: Slack Notification
+      - name: Slack Notification after backup
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: alert_project
@@ -81,7 +81,7 @@ jobs:
           cd ..
           helm repo index --url https://pavel167988.github.io/project_wp/ --merge index.yaml .                  
           
-      - name: Commit changes
+      - name: Push helm package
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -89,7 +89,7 @@ jobs:
           git commit -m "version app ${{ steps.tag_version.outputs.new_tag }}"
           git push
           
-      - name: Slack Notification
+      - name: Slack Notification after push helm
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: alert_project
