@@ -22,7 +22,7 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.gh_token }}
-          tag_prefix: ""
+          default_bump: major
           
                     
       - name: Check out the repo
